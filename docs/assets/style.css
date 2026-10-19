@@ -135,6 +135,15 @@
   .f-brand img { width: 52px; height: 52px; border-radius: 10px; }
   .f-brand b { color: #fff; display: block; }
   .f-brand small { font-size: .85rem; }
+  .sbc {
+    display: flex; align-items: center; gap: 14px;
+    background: #fff; color: var(--ink);
+    padding: 10px 18px; border-radius: 14px;
+  }
+  .sbc img { height: 42px; width: auto; display: block; }
+  .sbc span { border-inline-start: 1px solid #e5e1d8; padding-inline-start: 14px; }
+  .sbc small { display: block; color: var(--muted); font-size: .75rem; line-height: 1.4; }
+  .sbc b { font-size: .92rem; display: block; letter-spacing: .5px; }
   .f-bottom {
     border-top: 1px solid rgba(255,255,255,.1); margin-top: 28px; padding-top: 20px;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: .86rem;
