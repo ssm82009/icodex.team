@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "icodex-team",
+  "compatibility_date": "2026-10-12",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./docs"
+  },
+  "routes": [
+    { "pattern": "icodex.team", "custom_domain": true },
+    { "pattern": "www.icodex.team", "custom_domain": true }
+  ]
+}
