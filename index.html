@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>كوديكس | خدماتنا</title>
+<meta name="description" content="كوديكس — إدارة وتطوير المواقع والتطبيقات الذكية. اطلب خدمتك وادفع بأمان.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #1c1f24;
+    --muted: #5d6470;
+    --line: #e4e7ec;
+    --brand: #e8c21a;       /* أصفر الشعار */
+    --brand-ink: #2f2c27;   /* خلفية الشعار */
+    --accent: #2b2925;
+    --ok: #138a52;
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+  /* الهيدر */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(47,44,39,.96);
+    backdrop-filter: blur(8px);
+    color: #fff;
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 46px; height: 46px; border-radius: 10px; }
+  .brand b { font-size: 1.15rem; display: block; line-height: 1.2; }
+  .brand small { color: #c9c4b8; font-size: .82rem; }
+  .nav-cta {
+    background: var(--brand); color: var(--brand-ink);
+    padding: 9px 18px; border-radius: 999px; font-weight: 600; font-size: .92rem;
+    transition: transform .15s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); }
+
+  /* البطل */
+  .hero {
+    background: var(--brand-ink);
+    color: #fff;
+    padding: 64px 0 120px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(232,194,26,.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom, #000 30%, transparent);
+  }
+  .hero .wrap { position: relative; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(232,194,26,.4); color: var(--brand);
+    padding: 4px 14px; border-radius: 999px; font-size: .85rem; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(1.8rem, 4.5vw, 2.9rem); line-height: 1.35; font-weight: 700; max-width: 720px; }
+  .hero h1 span { color: var(--brand); }
+  .hero p { color: #d6d1c6; max-width: 600px; margin-top: 14px; font-size: 1.05rem; }
+  .crumbs { font-size: .85rem; color: #a9a397; margin-bottom: 28px; }
+  .crumbs a:hover { color: #fff; }
+
+  /* المنتجات */
+  .products { margin-top: -80px; position: relative; padding-bottom: 72px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card {
+    background: var(--surface); border-radius: var(--radius);
+    box-shadow: var(--shadow); border: 1px solid var(--line);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(16,24,40,.06), 0 18px 40px rgba(16,24,40,.12); }
+  .card.featured { border: 2px solid var(--brand); }
+  .thumb { aspect-ratio: 16/10; display: grid; place-items: center; position: relative; }
+  .thumb svg { width: 62%; height: auto; }
+  .t1 { background: linear-gradient(135deg, #fff7d6, #ffe58a); }
+  .t2 { background: linear-gradient(135deg, #e9e3ff, #b9a6ff); }
+  .t3 { background: linear-gradient(135deg, #dcf5ea, #93dcb9); }
+  .badge {
+    position: absolute; top: 14px; right: 14px;
+    background: var(--brand-ink); color: var(--brand);
+    font-size: .78rem; font-weight: 600; padding: 3px 12px; border-radius: 999px;
+  }
+  .body { padding: 22px 22px 8px; flex: 1; }
+  .body h2 { font-size: 1.3rem; font-weight: 700; }
+  .body .sub { color: var(--muted); font-size: .93rem; margin-top: 4px; }
+  .feats { list-style: none; margin-top: 16px; display: grid; gap: 8px; }
+  .feats li { display: flex; gap: 10px; align-items: flex-start; font-size: .93rem; }
+  .feats svg { flex: none; margin-top: 5px; color: var(--ok); }
+  .foot {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 18px 22px 22px; border-top: 1px dashed var(--line); margin-top: 18px;
+  }
+  .price { line-height: 1.2; }
+  .price small { color: var(--muted); font-size: .8rem; display: block; }
+  .price b { font-size: 1.55rem; font-weight: 700; }
+  .price b span { font-size: .95rem; font-weight: 500; color: var(--muted); margin-inline-start: 4px; }
+  .buy {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 11px 18px; border-radius: 12px; font-weight: 600; font-size: .95rem;
+    transition: background .15s;
+    white-space: nowrap;
+  }
+  .buy:hover { background: #000; }
+  .featured .buy { background: var(--brand); color: var(--brand-ink); }
+  .featured .buy:hover { background: #d4af0e; }
+
+  /* لماذا نحن */
+  .why { padding: 8px 0 72px; }
+  .why h3 { text-align: center; font-size: 1.5rem; margin-bottom: 28px; }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .why-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px; text-align: center;
+  }
+  .why-item .ic {
+    width: 46px; height: 46px; border-radius: 12px; margin: 0 auto 10px;
+    background: #fff7d6; color: #8a6d00; display: grid; place-items: center;
+  }
+  .why-item b { display: block; }
+  .why-item p { color: var(--muted); font-size: .88rem; }
+
+  /* الفوتر */
+  footer { background: var(--brand-ink); color: #d6d1c6; padding: 40px 0 28px; }
+  .f-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .f-brand { display: flex; gap: 12px; align-items: center; }
+  .f-brand img { width: 52px; height: 52px; border-radius: 10px; }
+  .f-brand b { color: #fff; display: block; }
+  .f-brand small { font-size: .85rem; }
+  .sbc {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; color: var(--ink);
+    padding: 10px 16px 10px 20px; border-radius: 14px;
+    transition: transform .15s;
+  }
+  .sbc:hover { transform: translateY(-2px); }
+  .sbc .seal { width: 44px; height: 44px; flex: none; }
+  .sbc small { display: block; color: var(--muted); font-size: .75rem; line-height: 1.3; }
+  .sbc b { font-size: .92rem; line-height: 1.4; display: block; }
+  .f-bottom {
+    border-top: 1px solid rgba(255,255,255,.1); margin-top: 28px; padding-top: 20px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: .86rem;
+  }
+  .secure { display: inline-flex; gap: 6px; align-items: center; }
+
+  @media (max-width: 960px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .grid, .why-grid { grid-template-columns: 1fr; }
+    .brand small { display: none; }
+    .hero { padding: 40px 0 100px; }
+    .f-top { flex-direction: column; align-items: flex-start; }
+    .f-bottom { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <img src="assets/logo.png" alt="شعار كوديكس">
+      <span><b>كوديكس</b><small>إدارة وتطوير المواقع والتطبيقات الذكية</small></span>
+    </a>
+    <a class="nav-cta" href="#products">تصفّح الخدمات</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <nav class="crumbs"><a href="#">الرئيسية</a> ‹ صفحة المنتجات</nav>
+    <span class="pill">● خدمات رقمية بأسعار واضحة</span>
+    <h1>نحوّل فكرتك إلى <span>منتج رقمي</span> يعمل باحترافية</h1>
+    <p>اختر الخدمة المناسبة وادفع بأمان عبر بوابة الدفع، ويبدأ فريقنا العمل فور تأكيد الطلب.</p>
+  </div>
+</section>
+
+<main class="products" id="products">
+  <div class="wrap grid">
+
+    <!-- إضافة كروم -->
+    <article class="card">
+      <div class="thumb t1">
+        <svg viewBox="0 0 120 90" fill="none" aria-hidden="true">
+          <rect x="6" y="8" width="108" height="74" rx="8" fill="#fff"/>
+          <rect x="6" y="8" width="108" height="16" rx="8" fill="#2f2c27"/>
+          <circle cx="16" cy="16" r="2.5" fill="#e8c21a"/><circle cx="24" cy="16" r="2.5" fill="#fff" opacity=".5"/>
+          <rect x="34" y="12" width="56" height="8" rx="4" fill="#fff" opacity=".25"/>
+          <path d="M98 12h6a2 2 0 012 2v1.5a2.5 2.5 0 100 5V22a2 2 0 01-2 2h-6v-1.5a2.5 2.5 0 10-5 0V24" fill="#e8c21a"/>
+          <rect x="62" y="30" width="44" height="44" rx="6" fill="#fff7d6" stroke="#e8c21a" stroke-width="1.5"/>
+          <rect x="68" y="38" width="32" height="5" rx="2.5" fill="#2f2c27"/>
+          <rect x="68" y="48" width="24" height="4" rx="2" fill="#c9b04a"/>
+          <rect x="68" y="58" width="32" height="9" rx="4.5" fill="#e8c21a"/>
+          <rect x="14" y="34" width="40" height="5" rx="2.5" fill="#e4e7ec"/>
+          <rect x="14" y="44" width="32" height="5" rx="2.5" fill="#e4e7ec"/>
+          <rect x="14" y="54" width="38" height="5" rx="2.5" fill="#e4e7ec"/>
+        </svg>
+      </div>
+      <div class="body">
+        <h2>إنشاء إضافة كروم</h2>
+        <p class="sub">إضافة مخصصة لمتصفح Chrome تؤتمت مهامك وتوفّر وقتك.</p>
+        <ul class="feats">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>تصميم واجهة الإضافة وبرمجتها</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>متوافقة مع معايير Manifest V3</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>مساعدة في النشر على متجر Chrome</li>
+        </ul>
+      </div>
+      <div class="foot">
+        <div class="price"><small>يبدأ من</small><b>500<span>ريال</span></b></div>
+        <a class="buy" href="https://store.paylink.sa/CodexTeam/product/3112719100012533" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6"/></svg>
+          اطلب الآن
+        </a>
+      </div>
+    </article>
+
+    <!-- إنشاء موقع -->
+    <article class="card featured">
+      <div class="thumb t2">
+        <span class="badge">الأكثر طلباً</span>
+        <svg viewBox="0 0 120 90" fill="none" aria-hidden="true">
+          <rect x="10" y="10" width="100" height="64" rx="6" fill="#2f2c27"/>
+          <rect x="14" y="14" width="92" height="56" rx="3" fill="#fff"/>
+          <rect x="14" y="14" width="92" height="9" fill="#efeaff"/>
+          <rect x="20" y="30" width="38" height="6" rx="3" fill="#6d4cff"/>
+          <rect x="20" y="40" width="30" height="4" rx="2" fill="#c8bcff"/>
+          <rect x="20" y="49" width="20" height="8" rx="4" fill="#e8c21a"/>
+          <rect x="66" y="29" width="34" height="34" rx="4" fill="#efeaff"/>
+          <path d="M70 58l8-10 6 7 4-4 8 7z" fill="#9b84ff"/>
+          <circle cx="90" cy="38" r="3.5" fill="#e8c21a"/>
+          <path d="M4 74h112l-6 6H10z" fill="#4a463e"/>
+        </svg>
+      </div>
+      <div class="body">
+        <h2>إنشاء موقع ويب</h2>
+        <p class="sub">موقع احترافي متكامل يعكس هوية نشاطك ويجذب عملاءك.</p>
+        <ul class="feats">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>تصميم متجاوب مع الجوال وعربي بالكامل</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>سرعة عالية وتهيئة لمحركات البحث</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>ربط النطاق والاستضافة والإطلاق</li>
+        </ul>
+      </div>
+      <div class="foot">
+        <div class="price"><small>يبدأ من</small><b>5,999<span>ريال</span></b></div>
+        <a class="buy" href="https://store.paylink.sa/CodexTeam/product/917363100012533" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6"/></svg>
+          اطلب الآن
+        </a>
+      </div>
+    </article>
+
+    <!-- إدارة موقع -->
+    <article class="card">
+      <div class="thumb t3">
+        <svg viewBox="0 0 120 90" fill="none" aria-hidden="true">
+          <rect x="8" y="10" width="104" height="70" rx="8" fill="#fff"/>
+          <rect x="16" y="18" width="40" height="24" rx="5" fill="#dcf5ea"/>
+          <rect x="21" y="24" width="18" height="4" rx="2" fill="#6bbf98"/>
+          <rect x="21" y="32" width="28" height="5" rx="2.5" fill="#138a52"/>
+          <rect x="62" y="18" width="42" height="24" rx="5" fill="#fff7d6"/>
+          <rect x="67" y="24" width="18" height="4" rx="2" fill="#c9b04a"/>
+          <rect x="67" y="32" width="26" height="5" rx="2.5" fill="#2f2c27"/>
+          <path d="M18 70l14-12 10 6 16-16 14 10 16-12 14 6" stroke="#138a52" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="58" cy="48" r="3" fill="#e8c21a"/>
+        </svg>
+      </div>
+      <div class="body">
+        <h2>إدارة موقع ويب</h2>
+        <p class="sub">نتولى تشغيل موقعك وتحديثه لتتفرغ أنت لنمو أعمالك.</p>
+        <ul class="feats">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>تحديث المحتوى والصيانة الدورية</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>مراقبة الأداء والحماية والنسخ الاحتياطي</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>دعم فني وتقارير دورية</li>
+        </ul>
+      </div>
+      <div class="foot">
+        <div class="price"><small>يبدأ من</small><b>2,999<span>ريال</span></b></div>
+        <a class="buy" href="https://store.paylink.sa/CodexTeam/product/917369100012533" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6"/></svg>
+          اطلب الآن
+        </a>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<section class="why">
+  <div class="wrap">
+    <h3>لماذا كوديكس؟</h3>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
+        <b>دفع آمن</b><p>عبر بوابة Paylink المعتمدة</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <b>منشأة موثقة</b><p>لدى المركز السعودي للأعمال</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <b>تسليم في الموعد</b><p>جدول زمني واضح لكل مشروع</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div>
+        <b>دعم مستمر</b><p>متابعة بعد التسليم</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="assets/logo.png" alt="شعار كوديكس">
+        <div><b>كوديكس</b><small>إدارة وتطوير المواقع والتطبيقات الذكية</small></div>
+      </div>
+
+      <!-- ضع رابط شهادة التوثيق الخاصة بك من المركز السعودي للأعمال مكان # -->
+      <a class="sbc" href="#" target="_blank" rel="noopener" title="التحقق من توثيق المنشأة">
+        <svg class="seal" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 2l5 4 6.3-.6 2.4 5.9 5.9 2.4L43 20l4 4-4 4 .6 6.3-5.9 2.4-2.4 5.9L29 42l-5 4-5-4-6.3.6-2.4-5.9-5.9-2.4L5 28l-4-4 4-4-.6-6.3 5.9-2.4 2.4-5.9L19 6z" fill="#0f7a4a"/>
+          <circle cx="24" cy="24" r="13" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/>
+          <path d="M17.5 24.5l4.5 4.5 9-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>
+          <small>منشأة موثقة لدى</small>
+          <b>المركز السعودي للأعمال</b>
+        </span>
+      </a>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="y">2026</span> كوديكس. جميع الحقوق محفوظة.</span>
+      <span class="secure">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+        جميع المدفوعات تتم بأمان عبر Paylink
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
